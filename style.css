@@ -1,0 +1,110 @@
+/* Основной стиль */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: url('https://i.pinimg.com/1200x/a9/bf/16/a9bf169fe16347c01060dc0c9106c7e8.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #4a0033;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+}
+
+/* затемняющий слой */
+body::before {
+  content: '';
+  position: absolute;
+  top:0; left:0; right:0; bottom:0;
+  background: rgba(255, 255, 255, 0.3);
+  z-index: -1;
+}
+
+/* Заголовки адаптивные */
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 8vw, 56px);
+  margin-bottom: 10px;
+  color: #e91e63;
+  position: relative;
+  z-index: 2;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(18px, 5vw, 28px);
+  color: #ad1457;
+  margin-top: 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* Параграфы */
+p {
+  max-width: 90%;
+  font-size: clamp(14px, 4vw, 18px);
+  line-height: 1.6;
+  margin: 20px 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* Кнопка */
+button {
+  background-color: #e91e63;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 26px;
+  font-size: clamp(14px, 4vw, 18px);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  position: relative;
+  z-index: 2;
+}
+
+button:hover {
+  background-color: #d81b60;
+  transform: scale(1.05);
+}
+
+/* Блок с информацией */
+.info {
+  display: none;
+  margin-top: 20px;
+  font-weight: 600;
+  color: #ad1457;
+  font-size: clamp(14px, 4vw, 18px);
+  position: relative;
+  z-index: 2;
+}
+
+/* Подпись внизу */
+.footer {
+  margin-top: 40px;
+  font-size: clamp(12px, 3vw, 16px);
+  color: #880e4f;
+  position: relative;
+  z-index: 2;
+}
+
+/* сердечки */
+.heart {
+  position: absolute;
+  color: #ff4081;
+  opacity: 0;
+  animation: flicker 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes flicker {
+  0% { opacity: 0; transform: scale(0.8) translateY(0); }
+  30% { opacity: 1; transform: scale(1) translateY(-10px); }
+  70% { opacity: 0.8; transform: scale(1.2) translateY(-20px); }
+  100% { opacity: 0; transform: scale(0.5) translateY(0); }
+}
